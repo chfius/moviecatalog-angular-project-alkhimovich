@@ -47,8 +47,8 @@ export class MoviesService {
     return genres;
   }
 
-  showOnly(genre: string): void {
-    this.movies.forEach((el) => (el.genre === genre ? (el.hidden = true) : (el.hidden = false)));
+  showOnly(genre: string[]): void {
+    this.movies.forEach((el) => (genre.indexOf(el.genre) > -1 ? (el.hidden = false) : (el.hidden = true)));
   }
 
   constructor() {}

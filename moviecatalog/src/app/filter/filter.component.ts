@@ -8,11 +8,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FilterComponent implements OnInit {
   genres: string[];
+  showOnlyGenres: string[] = [];
 
-  genreClick(genre: string): void {
-    // const allCheckbox = document.getElementById('allcheckbox');
-    // allCheckbox.removeAttribute('checked');
-    this.moviesService.showOnly(genre);
+  genreAllClick(): void {
+    const genresAll = Array.from(document.getElementsByTagName('input'));
+    for (let i = 1; i < genresAll.length; i++) {
+      genresAll[i].checked = genresAll[0].checked;
+    }
+    genresAll[0].checked ? (this.showOnlyGenres = this.genres) : (this.showOnlyGenres = []);
+    this.moviesService.showOnly(this.showOnlyGenres);
+  }
+
+  genreClick(event: Event): void {
+    this.showOnlyGenres = [];
+    const genresAll = Array.from(document.getElementsByTagName('input'));
+    for (let i = 1; i < genresAll.length; i++) {
+      if (genresAll[i].checked) {
+        this.showOnlyGenres.push(genresAll[i].name);
+      }
+    }
+    genresAll[0].checked = false;
+    this.moviesService.showOnly(this.showOnlyGenres);
   }
 
   constructor(private moviesService: MoviesService) {}

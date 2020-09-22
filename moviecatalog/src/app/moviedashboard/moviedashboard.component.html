@@ -1,5 +1,8 @@
 <div class="container">
   <div *ngFor="let movie of movies" class="movie_view">
-    <app-moviecard [item]="movie"> </app-moviecard>
+    <app-moviecard
+     [item]="movie"
+     *ngIf="!movie.hidden"
+    ></app-moviecard>
   </div>
 </div>
