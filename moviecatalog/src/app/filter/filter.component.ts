@@ -9,6 +9,12 @@ import { Component, OnInit } from '@angular/core';
 export class FilterComponent implements OnInit {
   genres: string[];
 
+  genreClick(genre: string): void {
+    // const allCheckbox = document.getElementById('allcheckbox');
+    // allCheckbox.removeAttribute('checked');
+    this.moviesService.showOnly(genre);
+  }
+
   constructor(private moviesService: MoviesService) {}
 
   ngOnInit(): void {

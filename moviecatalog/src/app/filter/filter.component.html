@@ -1,6 +1,14 @@
 <div class="container">
-  <label><input type="checkbox" name="all" /> Все </label>
+  <label #allcheckbox
+    ><input
+      type="checkbox"
+      name="all"
+      id="allcheckbox"
+      checked
+      (click)="genreClick('Все')"
+    />Все</label
+  >
   <div *ngFor="let genre of genres">
-    <label> <input type="checkbox" name="genre" />{{ genre }} </label>
+    <label> <input type="checkbox" name="genre" (click)="genreClick(genre)" />{{ genre }}</label>
   </div>
 </div>
