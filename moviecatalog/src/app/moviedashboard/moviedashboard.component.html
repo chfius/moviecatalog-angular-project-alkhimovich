@@ -1,52 +1,8 @@
 <div class="container">
   <div *ngFor="let movie of movies" class="movie_view">
-    <img *ngIf="movie.poster" src="{{ movie.poster }}" alt="poster" class="poster" />
-    <div>
-      <ul>
-        <li *ngIf="movie.title">
-          <p>
-            Название: <span>{{ movie.title }}</span>
-          </p>
-        </li>
-        <li *ngIf="movie.year">
-          <p>
-            Год выхода: <span>{{ movie.year }}</span>
-          </p>
-        </li>
-        <li *ngIf="movie.genre">
-          <p>
-            Жанр: <span>{{ movie.genre }}</span>
-          </p>
-        </li>
-        <li *ngIf="movie.country">
-          <p>
-            Страна: <span>{{ movie.country }}</span>
-          </p>
-        </li>
-        <li *ngIf="movie.director">
-          <p>
-            Режисер: <span>{{ movie.director }}</span>
-          </p>
-        </li>
-        <li *ngIf="movie.actors">
-          <p>
-            Актеры: <span>{{ movie.actors }}</span>
-          </p>
-        </li>
-        <li *ngIf="movie.rate">
-          <p>
-            Ретинг: <span>{{ movie.rate }}</span>
-          </p>
-        </li>
-        <li *ngIf="movie.desription">
-          <p>
-            Описание: <span>{{ movie.desription }}</span>
-          </p>
-        </li>
-        <li>
-          <p>Просмотрен: <span *ngIf="movie.isWatched">Да</span> <span *ngIf="!movie.isWatched">Нет</span></p>
-        </li>
-      </ul>
-    </div>
+    <app-moviecard
+     [item]="movie"
+     *ngIf="!movie.hidden"
+    ></app-moviecard>
   </div>
 </div>

@@ -9,4 +9,5 @@ export interface Movie {
   actors?: string;
   rate?: number;
   desription?: string;
+  hidden: boolean;
 }
