@@ -34,5 +34,11 @@ export class MoviesService {
     return this.movies;
   }
 
+  getGenres(): string[] {
+    const genres: string[] = [];
+    this.movies.forEach((el) => genres.push(el.genre));
+    return genres;
+  }
+
   constructor() {}
 }

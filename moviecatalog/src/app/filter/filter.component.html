@@ -1,1 +1,6 @@
-<p>filter works!</p>
+<div class="container">
+  <label><input type="checkbox" name="all" /> Все </label>
+  <div *ngFor="let genre of genres">
+    <label> <input type="checkbox" name="genre" />{{ genre }} </label>
+  </div>
+</div>
