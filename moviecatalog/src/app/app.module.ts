@@ -6,6 +6,7 @@ import { RandomlineComponent } from './randomline/randomline.component';
 import { FilterComponent } from './filter/filter.component';
 import { MoviedashboardComponent } from './moviedashboard/moviedashboard.component';
 import { MoviecardComponent } from './moviecard/moviecard.component';
+import { HeaderMenuComponent } from './header-menu/header-menu.component';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { MoviecardComponent } from './moviecard/moviecard.component';
     RandomlineComponent,
     FilterComponent,
     MoviedashboardComponent,
-    MoviecardComponent
+    MoviecardComponent,
+    HeaderMenuComponent
   ],
   imports: [
     BrowserModule
