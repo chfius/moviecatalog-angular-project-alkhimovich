@@ -7,6 +7,10 @@ import { FilterComponent } from './filter/filter.component';
 import { MoviedashboardComponent } from './moviedashboard/moviedashboard.component';
 import { MoviecardComponent } from './moviecard/moviecard.component';
 import { HeaderMenuComponent } from './header-menu/header-menu.component';
+import { RoutingModule } from './routing/routing.module';
+import { AccountComponent } from './account/account.component';
+import { AboutComponent } from './about/about.component';
+import { AddfilmComponent } from './addfilm/addfilm.component';
 
 @NgModule({
   declarations: [
@@ -15,12 +19,13 @@ import { HeaderMenuComponent } from './header-menu/header-menu.component';
     FilterComponent,
     MoviedashboardComponent,
     MoviecardComponent,
-    HeaderMenuComponent
+    HeaderMenuComponent,
+    AccountComponent,
+    AboutComponent,
+    AddfilmComponent,
   ],
-  imports: [
-    BrowserModule
-  ],
+  imports: [BrowserModule, RoutingModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
