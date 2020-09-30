@@ -1,4 +1,4 @@
-import { Movie } from './movie.interface';
+import { Movie } from '../models/movie.interface';
 import { Injectable } from '@angular/core';
 
 @Injectable({
