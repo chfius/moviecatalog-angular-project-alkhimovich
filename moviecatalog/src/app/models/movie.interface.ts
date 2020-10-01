@@ -1,7 +1,7 @@
 export interface Movie {
   poster?: string;
   title: string;
-  year: number;
+  year?: number;
   genre: string;
   isWatched: boolean;
   country?: string;

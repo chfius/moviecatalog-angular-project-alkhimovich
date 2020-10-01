@@ -19,7 +19,7 @@ export class FilterComponent implements OnInit {
     this.moviesService.showOnly(this.showOnlyGenres);
   }
 
-  genreClick(event: Event): void {
+  genreClick(): void {
     this.showOnlyGenres = [];
     const genresAll = Array.from(document.getElementsByTagName('input'));
     for (let i = 1; i < genresAll.length; i++) {
