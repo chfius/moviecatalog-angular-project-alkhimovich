@@ -31,6 +31,7 @@ export class AddfilmComponent implements OnInit {
 
     // tslint:disable-next-line: forin
     for (const key in data) {
+      // этот кейс очищает "мусорные" поля и меняет строковоую перемнную на булевую
       switch (data[key]) {
         case null:
           delete data[key];
@@ -45,7 +46,13 @@ export class AddfilmComponent implements OnInit {
     }
     data.hidden = false;
     this.moviesService.addMovie(data);
+    form.reset();
   }
+
+  // TODO: добавить галочку валидности возле поля
+  // TODO: добавить валидности нужных полей
+  // TODO: добавить валидности нужных полей
+  // TODO: добавить модальное окно успешности добавления
 
   constructor(private moviesService: MoviesService) {}
 
