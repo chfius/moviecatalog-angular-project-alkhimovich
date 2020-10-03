@@ -18,6 +18,7 @@ export class AccountComponent implements OnInit {
   }
 
   // TODO: сделать авторизацию пользователя
+  // TODO: оптимизировать css файл
 
   constructor() {}
 
