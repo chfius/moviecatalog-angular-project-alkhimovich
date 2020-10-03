@@ -1,1 +1,86 @@
-<p>Здесь форма добавления нового фильма</p>
+<h3>Добавить новый фильм в коллекцию</h3>
+<form [formGroup]="newFilm" (ngSubmit)="onSubmit(form)" #form="ngForm">
+  <div class="field">
+    <label for="poster">Ссылка на картинку</label>
+    <input
+      formControlName="poster"
+      type="text"
+      id="poster"
+      placeholder="http://.."
+    />
+  </div>
+  <div class="field">
+    <label for="title">Название</label>
+    <input formControlName="title" type="text" id="title" />
+  </div>
+  <div class="field">
+    <label for="year">Год выхода</label>
+    <input
+      formControlName="year"
+      type="number"
+      min="1900"
+      max="2020"
+      id="year"
+    />
+  </div>
+  <div class="field">
+    <label for="genre">Жанр фильма</label>
+    <select formControlName="genre" id="genre">
+      <option></option>
+      <option *ngFor="let genre of genres">{{ genre }}</option>
+    </select>
+  </div>
+  <div class="field">
+    <label>Посмотрен?</label>
+    <input
+      formControlName="isWatched"
+      type="radio"
+      id="isWatched_yes"
+      name="isWatched"
+      value="true"
+    /><label for="isWatched_yes">Да</label>
+    <input
+      formControlName="isWatched"
+      type="radio"
+      id="isWatched_no"
+      name="isWatched"
+      value="false"
+    /><label for="isWatched_no">Нет</label>
+  </div>
+  <div class="field">
+    <label for="country">Страна</label>
+    <input formControlName="country" type="text" id="country" />
+  </div>
+  <div class="field">
+    <label for="director">Режиссер</label>
+    <input formControlName="director" type="text" id="director" />
+  </div>
+  <div class="field">
+    <label for="actors">Актеры</label>
+    <input formControlName="actors" type="text" id="actors" />
+  </div>
+  <div class="field">
+    <label for="rate">Рейтинг</label>
+    <input
+      formControlName="rate"
+      type="number"
+      min="0"
+      max="10"
+      rate="0.1"
+      id="rate"
+    />
+  </div>
+  <div class="field">
+    <label for="desription">Описание</label>
+    <textarea
+      formControlName="desription"
+      id="desription"
+      cols="30"
+      rows="10"
+      placeholder="Кратко о фильме..."
+    >
+    </textarea>
+  </div>
+  <button type="submit" [disabled]="!form.valid">Сохранить</button>
+  <input type="reset" id="reset" />
+</form>

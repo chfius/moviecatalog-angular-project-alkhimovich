@@ -11,6 +11,7 @@ import { RoutingModule } from './routing/routing.module';
 import { AccountComponent } from './account/account.component';
 import { AboutComponent } from './about/about.component';
 import { AddfilmComponent } from './addfilm/addfilm.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,7 @@ import { AddfilmComponent } from './addfilm/addfilm.component';
     AboutComponent,
     AddfilmComponent,
   ],
-  imports: [BrowserModule, RoutingModule],
+  imports: [BrowserModule, RoutingModule, ReactiveFormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })

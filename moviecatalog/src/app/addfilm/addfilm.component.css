@@ -1,0 +1,14 @@
+div.field {
+  padding-bottom: 10px;
+}
+
+div.field label:first-child {
+  display: block;
+  float: left;
+  width: 200px;
+  height: 15px;
+}
+
+#reset {
+  margin-left: 5px;
+}

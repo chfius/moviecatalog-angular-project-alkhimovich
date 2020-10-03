@@ -1,4 +1,4 @@
-import { Movie } from './movie.interface';
+import { Movie } from './../models/movie.interface';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -48,7 +48,13 @@ export class MoviesService {
   }
 
   showOnly(genre: string[]): void {
-    this.movies.forEach((el) => (genre.indexOf(el.genre) > -1 ? (el.hidden = false) : (el.hidden = true)));
+    this.movies.forEach((el) =>
+      genre.indexOf(el.genre) > -1 ? (el.hidden = false) : (el.hidden = true),
+    );
+  }
+
+  addMovie(movie: Movie): void {
+    this.movies.push(movie);
   }
 
   constructor() {}
