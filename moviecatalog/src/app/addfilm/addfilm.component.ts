@@ -14,7 +14,7 @@ export class AddfilmComponent implements OnInit {
   movie: Movie;
 
   newFilm = new FormGroup({
-    poster: new FormControl(),
+    poster: new FormControl('', Validators.pattern('/(http|https)://.+/')),
     title: new FormControl('', Validators.required),
     year: new FormControl(),
     genre: new FormControl('', Validators.required),
