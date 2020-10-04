@@ -1,3 +1,4 @@
+import { AuthService } from './account/auth.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -26,7 +27,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     AddfilmComponent,
   ],
   imports: [BrowserModule, RoutingModule, ReactiveFormsModule],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
