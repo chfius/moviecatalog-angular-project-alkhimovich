@@ -1,8 +1,9 @@
 <h3>
-  Здравствуй, дорогой <span *ngIf="userLoged">{{ userLoged }}</span>
+  Здравствуй, дорогой <span *ngIf="userLoged" class="user">{{ userLoged }}</span>
   <span *ngIf="!userLoged">пользователь</span>
 </h3>
 <p>
   Здесь будет выводиться информация о самом проекте, его авторе, принципе
   работы, назначение и пр.
+  <!-- Сюда можно добавить ng-content или @ViewContent -->
 </p>
