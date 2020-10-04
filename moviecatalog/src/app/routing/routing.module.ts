@@ -9,8 +9,7 @@ import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: 'main',
-    component: AccountComponent,
-    // component: MoviedashboardComponent,
+    component: MoviedashboardComponent,
   },
   { path: 'account', component: AccountComponent },
   { path: 'add', component: AddfilmComponent },
