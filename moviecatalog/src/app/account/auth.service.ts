@@ -33,9 +33,7 @@ export class AuthService {
 
   userLogIn(userCur: User): void {
     this.users.map((user) => {
-      if (user.login === userCur.login) {
-        user.isLogin = true;
-      }
+      user.isLogin = user.login === userCur.login;
     });
   }
 }
