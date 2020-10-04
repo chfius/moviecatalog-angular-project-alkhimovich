@@ -1,5 +1,6 @@
 import { Movie } from './../models/movie.interface';
 import { Injectable } from '@angular/core';
+import { Observable, from } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -37,8 +38,8 @@ export class MoviesService {
     },
   ];
 
-  getMovies(): Movie[] {
-    return this.movies;
+  getMovies(): Observable<Movie> {
+    return from(this.movies);
   }
 
   getGenres(): string[] {

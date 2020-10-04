@@ -13,6 +13,8 @@ export class MoviedashboardComponent implements OnInit {
   constructor(private moviesService: MoviesService) {}
 
   ngOnInit(): void {
-    this.movies = this.moviesService.getMovies();
+    this.moviesService
+      .getMovies()
+      .subscribe((movie) => this.movies.push(movie));
   }
 }
