@@ -1,1 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: Ubuntu-Bold;
+  src: url('./app/account/fonts/ubuntu/Ubuntu-Bold.ttf');
+}
+
+@font-face {
+  font-family: Ubuntu-Regular;
+  src: url('./app/account/fonts/ubuntu/Ubuntu-Regular.ttf');
+}
+
