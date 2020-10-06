@@ -10,6 +10,10 @@ import { Component, OnInit } from '@angular/core';
 export class MoviedashboardComponent implements OnInit {
   movies: Movie[] = [];
 
+  // TODO: сделать "дополнительно" для карточки фильма
+  // TODO: сделать одинакового размера карточки фильма
+  // TODO: сделать эффект увеличения размера карточки фильма
+
   constructor(private moviesService: MoviesService) {}
 
   ngOnInit(): void {

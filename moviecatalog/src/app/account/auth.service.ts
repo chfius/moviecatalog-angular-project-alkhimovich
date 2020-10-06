@@ -1,11 +1,13 @@
+import { filter, find, map, switchMap, tap } from 'rxjs/internal/operators';
+import { from, Observable, of } from 'rxjs';
 import { User } from './../models/user.interface';
 import { Injectable } from '@angular/core';
 
 @Injectable()
 export class AuthService {
   users = [
-    { login: 'admin', password: '123456', isLogin: false },
     { login: 'user', password: '123456', isLogin: false },
+    { login: 'yura', password: '098765', isLogin: false },
   ];
 
   checkLogin(user: User): boolean {
@@ -21,11 +23,17 @@ export class AuthService {
     return false;
   }
 
+  whoIsLog(): string | null {
+    let userLogin: User;
+    from(this.users)
+      .pipe(find((user) => user.isLogin))
+      .subscribe((user) => (userLogin = user));
+    return userLogin ? userLogin.login : null;
+  }
+
   userLogIn(userCur: User): void {
     this.users.map((user) => {
-      if (user.login === userCur.login) {
-        user.isLogin = true;
-      }
+      user.isLogin = user.login === userCur.login;
     });
   }
 }
