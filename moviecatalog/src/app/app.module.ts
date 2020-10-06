@@ -13,6 +13,7 @@ import { AccountComponent } from './account/account.component';
 import { AboutComponent } from './about/about.component';
 import { AddfilmComponent } from './addfilm/addfilm.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     AccountComponent,
     AboutComponent,
     AddfilmComponent,
+    PageNotFoundComponent,
   ],
   imports: [BrowserModule, RoutingModule, ReactiveFormsModule],
   providers: [AuthService],

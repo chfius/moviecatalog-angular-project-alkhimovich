@@ -1,3 +1,4 @@
+import { PageNotFoundComponent } from './../page-not-found/page-not-found.component';
 import { AddfilmComponent } from './../addfilm/addfilm.component';
 import { AboutComponent } from './../about/about.component';
 import { AccountComponent } from './../account/account.component';
@@ -17,7 +18,11 @@ const routes: Routes = [
     path: 'about',
     component: AboutComponent,
   },
-  { path: '**', redirectTo: '/main' },
+  {
+    path: 'page404',
+    component: PageNotFoundComponent,
+  },
+  { path: '**', redirectTo: '/page404' },
 ];
 
 @NgModule({
