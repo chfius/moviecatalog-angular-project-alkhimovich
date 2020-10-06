@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { MoviesService } from './../services/movies.service';
 import { Movie } from './../models/movie.interface';
 import { genres } from './../models/genres';
@@ -47,14 +48,14 @@ export class AddfilmComponent implements OnInit {
     data.hidden = false;
     this.moviesService.addMovie(data);
     form.reset();
+    this.router.navigate(['/main']);
   }
 
   // TODO: добавить галочку валидности возле поля
   // TODO: добавить валидности нужных полей
   // TODO: добавить модальное окно успешности добавления
-  // TODO: сделать стиль как у формы логина
 
-  constructor(private moviesService: MoviesService) {}
+  constructor(private moviesService: MoviesService, private router: Router) {}
 
   ngOnInit(): void {
     genres.forEach((item) => this.genres.push(item));
