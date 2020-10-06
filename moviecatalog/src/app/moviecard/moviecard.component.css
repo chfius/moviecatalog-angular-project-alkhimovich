@@ -2,10 +2,24 @@
   display: flex;
   flex-direction: row;
   margin: 10px;
-  padding: 10px;
-  border: solid 1px black;
+  padding: 20px;
   width: 320px;
-  min-width: 150px;
+  height: 320px;
+  border: solid 1px black;
+  border-radius: 10%;
+}
+
+.movie_view:hover {
+  -webkit-transform: scale(1.05);
+  -ms-transform: scale(1.05);
+  transform: scale(1.05);
+  background:#e2db7d;
+}
+
+.effect1 {
+  -webkit-box-shadow: 0 0 10px 5px rgba(221, 221, 221, 1);
+  -moz-box-shadow: 0 0 10px 5px rgba(221, 221, 221, 1);
+  box-shadow: 0 0 10px 5px rgba(221, 221, 221, 1);
 }
 
 .poster {
