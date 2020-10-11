@@ -1,0 +1,27 @@
+h3 {
+  font-family: Ubuntu-Bold;
+  font-size: 30px;
+  color: #403866;
+  line-height: 1.2;
+  text-transform: uppercase;
+  text-align: center;
+  width: 100%;
+  display: block;
+}
+
+span.user {
+  color: green;
+}
+
+.container {
+  width: 600px;
+  margin: 0 auto;
+  font-family: Ubuntu-Regular;
+}
+
+.avatar {
+  width: 200px;
+  float: left;
+  border-radius: 50%;
+  margin: 10px;
+}

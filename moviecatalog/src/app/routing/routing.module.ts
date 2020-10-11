@@ -13,6 +13,7 @@ const routes: Routes = [
   { path: 'account', component: AccountComponent },
   { path: 'add', component: AddfilmComponent },
   { path: 'about', component: AboutComponent },
+  { path: 'about-page', loadChildren: () => import('../about-page/about-page.module').then(m => m.AboutPageModule) },
   { path: '**', component: PageNotFoundComponent },
 ];
 
