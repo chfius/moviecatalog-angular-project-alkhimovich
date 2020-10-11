@@ -5,7 +5,8 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class AuthService {
-  users = [
+  public autorized = false;
+  private users = [
     { login: 'user', password: '123456', isLogin: false },
     { login: 'yura', password: '098765', isLogin: false },
   ];
@@ -17,6 +18,7 @@ export class AuthService {
         this.users[i].login === user.login &&
         this.users[i].password === user.password
       ) {
+        this.autorized = true;
         return true;
       }
     }
