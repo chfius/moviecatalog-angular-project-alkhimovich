@@ -9,7 +9,6 @@ import { MoviecardComponent } from './moviecard/moviecard.component';
 import { HeaderMenuComponent } from './header-menu/header-menu.component';
 import { RoutingModule } from './routing/routing.module';
 import { AccountComponent } from './account/account.component';
-import { AboutComponent } from './about/about.component';
 import { AddfilmComponent } from './addfilm/addfilm.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
@@ -22,7 +21,6 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     MoviecardComponent,
     HeaderMenuComponent,
     AccountComponent,
-    AboutComponent,
     AddfilmComponent,
     PageNotFoundComponent,
   ],
