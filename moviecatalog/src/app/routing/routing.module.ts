@@ -8,21 +8,11 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  {
-    path: 'main',
-    component: MoviedashboardComponent,
-  },
+  { path: '', component: MoviedashboardComponent },
   { path: 'account', component: AccountComponent },
   { path: 'add', component: AddfilmComponent },
-  {
-    path: 'about',
-    component: AboutComponent,
-  },
-  {
-    path: 'page404',
-    component: PageNotFoundComponent,
-  },
-  { path: '**', redirectTo: '/page404' },
+  { path: 'about', component: AboutComponent },
+  { path: '**', component: PageNotFoundComponent },
 ];
 
 @NgModule({
