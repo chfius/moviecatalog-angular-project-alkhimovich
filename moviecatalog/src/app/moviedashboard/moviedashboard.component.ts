@@ -1,6 +1,6 @@
 import { MoviesService } from '../services/movies.service';
 import { Movie } from '../models/movie.interface';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-moviedashboard',
@@ -9,8 +9,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MoviedashboardComponent implements OnInit {
   movies: Movie[] = [];
-
-  // TODO: сделать "дополнительно" для карточки фильма
 
   constructor(private moviesService: MoviesService) {}
 

@@ -10,6 +10,12 @@ export class MoviecardComponent implements OnInit {
   @Input()
   item: Movie;
 
+  additional = false;
+
+  toggle(): void {
+    this.additional = !this.additional;
+  }
+
   constructor() {}
 
   ngOnInit(): void {}

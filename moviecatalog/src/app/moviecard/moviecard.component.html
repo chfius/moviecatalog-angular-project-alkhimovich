@@ -12,48 +12,50 @@
           Название: <span>{{ item.title }}</span>
         </p>
       </li>
-      <!-- <li *ngIf="item.year">
-        <p>
-          Год выхода: <span>{{ item.year }}</span>
-        </p>
-      </li> -->
       <li *ngIf="item.genre">
         <p>
           Жанр: <span>{{ item.genre }}</span>
         </p>
       </li>
-      <!-- <li *ngIf="item.country">
-        <p>
-          Страна: <span>{{ item.country }}</span>
-        </p>
-      </li>
-      <li *ngIf="item.director">
-        <p>
-          Режисер: <span>{{ item.director }}</span>
-        </p>
-      </li>
-      <li *ngIf="item.actors">
-        <p>
-          Актеры: <span>{{ item.actors }}</span>
-        </p>
-      </li>
-      <li *ngIf="item.rate">
-        <p>
-          Ретинг: <span>{{ item.rate }}</span>
-        </p>
-      </li>
-      <li *ngIf="item.desription">
-        <p>
-          Описание: <span>{{ item.desription }}</span>
-        </p>
-      </li> -->
       <li>
         <p>
           Просмотрен: <span *ngIf="item.isWatched">Да</span>
           <span *ngIf="!item.isWatched">Нет</span>
         </p>
+        <div *ngIf="additional">
+          <li *ngIf="item.year">
+            <p>
+              Год выхода: <span>{{ item.year }}</span>
+            </p>
+          </li>
+          <li *ngIf="item.country">
+            <p>
+              Страна: <span>{{ item.country }}</span>
+            </p>
+          </li>
+          <li *ngIf="item.director">
+            <p>
+              Режисер: <span>{{ item.director }}</span>
+            </p>
+          </li>
+          <li *ngIf="item.actors">
+            <p>
+              Актеры: <span>{{ item.actors }}</span>
+            </p>
+          </li>
+          <li *ngIf="item.rate">
+            <p>
+              Ретинг: <span>{{ item.rate }}</span>
+            </p>
+          </li>
+          <li *ngIf="item.desription">
+            <p>
+              Описание: <span>{{ item.desription }}</span>
+            </p>
+          </li>
+        </div>
       </li>
     </ul>
-    <ng-content select=".addition_btn"></ng-content>
+    <button class="addition_btn" (click)="toggle()">Дополнительно</button>
   </div>
 </div>
