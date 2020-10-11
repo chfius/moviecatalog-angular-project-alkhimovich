@@ -8,7 +8,8 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  { path: '', component: MoviedashboardComponent },
+  { path: '', redirectTo: 'main', pathMatch: 'full' },
+  { path: 'main', component: MoviedashboardComponent },
   { path: 'account', component: AccountComponent },
   { path: 'add', component: AddfilmComponent },
   { path: 'about', component: AboutComponent },
