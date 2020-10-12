@@ -1,5 +1,5 @@
-import { filter, find, map, switchMap, tap } from 'rxjs/internal/operators';
-import { from, Observable, of } from 'rxjs';
+import { find } from 'rxjs/internal/operators';
+import { from } from 'rxjs';
 import { User } from './../models/user.interface';
 import { Injectable } from '@angular/core';
 
