@@ -1,6 +1,8 @@
 <h3>Добавить новый фильм в коллекцию</h3>
 <div class="form-container">
-  <form [formGroup]="newFilm" (ngSubmit)="onSubmit(form)" #form="ngForm">
+  <form [formGroup]="newFilm" (ngSubmit)="onSubmit(form)" #form="ngForm"
+  (change)="hasChanges()"
+  >
     <div class="field">
       <label for="poster">Ссылка на картинку</label>
       <input

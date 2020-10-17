@@ -13,6 +13,7 @@ import { FormGroup, FormControl, NgForm, Validators } from '@angular/forms';
 export class AddfilmComponent implements OnInit {
   genres: string[] = [];
   movie: Movie;
+  hasUnsavedChanges = false;
 
   newFilm = new FormGroup({
     poster: new FormControl('', Validators.pattern('/(http|https)://.+/')),
@@ -26,6 +27,10 @@ export class AddfilmComponent implements OnInit {
     rate: new FormControl(),
     desription: new FormControl(),
   });
+
+  hasChanges(): void {
+    this.hasUnsavedChanges = true;
+  }
 
   onSubmit(form: NgForm): void {
     const data: Movie = form.value;
@@ -49,6 +54,7 @@ export class AddfilmComponent implements OnInit {
     this.moviesService.addMovie(data);
     form.reset();
     this.router.navigate(['/main']);
+    this.hasUnsavedChanges = false;
   }
 
   // TODO: добавить галочку валидности возле поля
@@ -59,5 +65,6 @@ export class AddfilmComponent implements OnInit {
 
   ngOnInit(): void {
     genres.forEach((item) => this.genres.push(item));
+    this.hasUnsavedChanges = false;
   }
 }

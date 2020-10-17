@@ -1,3 +1,4 @@
+import { AddfilmCloseGuard } from './../addfilm/addfilm.close.guard';
 import { AddFilmGuard } from './../addfilm/addfilm.guard';
 import { PageNotFoundComponent } from './../page-not-found/page-not-found.component';
 import { AddfilmComponent } from './../addfilm/addfilm.component';
@@ -11,7 +12,12 @@ const routes: Routes = [
   { path: '', redirectTo: 'main', pathMatch: 'full' },
   { path: 'main', component: MoviedashboardComponent },
   { path: 'account', component: AccountComponent },
-  { path: 'add', component: AddfilmComponent, canActivate: [AddFilmGuard] },
+  {
+    path: 'add',
+    component: AddfilmComponent,
+    canActivate: [AddFilmGuard],
+    canDeactivate: [AddfilmCloseGuard],
+  },
   {
     path: 'about-page',
     loadChildren: () =>
@@ -24,6 +30,6 @@ const routes: Routes = [
   declarations: [],
   imports: [CommonModule, RouterModule.forRoot(routes)],
   exports: [RouterModule],
-  providers: [AddFilmGuard],
+  providers: [AddFilmGuard, AddfilmCloseGuard],
 })
 export class RoutingModule {}
