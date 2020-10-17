@@ -1,3 +1,5 @@
+import { FakeBackendInterceptor } from './fakebackend/fake-backend.interceptor';
+import { MoviesResolve } from './moviedashboard/moviedashboard.resolve';
 import { AuthService } from './account/auth.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -12,6 +14,7 @@ import { AccountComponent } from './account/account.component';
 import { AddfilmComponent } from './addfilm/addfilm.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -24,8 +27,16 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     AddfilmComponent,
     PageNotFoundComponent,
   ],
-  imports: [BrowserModule, RoutingModule, ReactiveFormsModule],
-  providers: [AuthService],
+  imports: [BrowserModule, RoutingModule, ReactiveFormsModule, HttpClientModule],
+  providers: [
+    AuthService,
+    MoviesResolve,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: FakeBackendInterceptor,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

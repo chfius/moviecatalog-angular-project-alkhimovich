@@ -1,20 +1,17 @@
+import { ActivatedRoute } from '@angular/router';
+import { Movie } from './../models/movie.interface';
 import { MoviesService } from '../services/movies.service';
-import { Movie } from '../models/movie.interface';
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { pluck, tap } from 'rxjs/internal/operators';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-moviedashboard',
   templateUrl: './moviedashboard.component.html',
   styleUrls: ['./moviedashboard.component.css'],
 })
-export class MoviedashboardComponent implements OnInit {
-  movies: Movie[] = [];
+export class MoviedashboardComponent {
+  movies: Observable<Movie[]> = this.route.data.pipe(pluck('movies'));
 
-  constructor(private moviesService: MoviesService) {}
-
-  ngOnInit(): void {
-    this.moviesService
-      .getMovies()
-      .subscribe((movie) => this.movies.push(movie));
-  }
+  constructor(private route: ActivatedRoute) {}
 }

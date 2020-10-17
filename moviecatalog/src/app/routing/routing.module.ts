@@ -1,3 +1,5 @@
+import { MoviesService } from './../services/movies.service';
+import { MoviesResolve } from './../moviedashboard/moviedashboard.resolve';
 import { AddfilmCloseGuard } from './../addfilm/addfilm.close.guard';
 import { AddFilmGuard } from './../addfilm/addfilm.guard';
 import { PageNotFoundComponent } from './../page-not-found/page-not-found.component';
@@ -10,7 +12,11 @@ import { RouterModule, Routes, CanActivate } from '@angular/router';
 
 const routes: Routes = [
   { path: '', redirectTo: 'main', pathMatch: 'full' },
-  { path: 'main', component: MoviedashboardComponent },
+  {
+    path: 'main',
+    component: MoviedashboardComponent,
+    resolve: { movies: MoviesResolve },
+  },
   { path: 'account', component: AccountComponent },
   {
     path: 'add',
@@ -30,6 +36,6 @@ const routes: Routes = [
   declarations: [],
   imports: [CommonModule, RouterModule.forRoot(routes)],
   exports: [RouterModule],
-  providers: [AddFilmGuard, AddfilmCloseGuard],
+  providers: [AddFilmGuard, AddfilmCloseGuard, MoviesService, MoviesResolve],
 })
 export class RoutingModule {}
