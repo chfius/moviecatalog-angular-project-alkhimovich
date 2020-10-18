@@ -37,7 +37,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
               status: 200,
               body: movies,
             }),
-          );
+          ).pipe(delay(3000));
         default:
           return next.handle(request);
       }

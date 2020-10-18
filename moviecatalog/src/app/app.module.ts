@@ -1,3 +1,5 @@
+import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
+import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
 import { FakeBackendInterceptor } from './fakebackend/fake-backend.interceptor';
 import { MoviesResolve } from './moviedashboard/moviedashboard.resolve';
 import { AuthService } from './account/auth.service';
@@ -27,7 +29,15 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
     AddfilmComponent,
     PageNotFoundComponent,
   ],
-  imports: [BrowserModule, RoutingModule, ReactiveFormsModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    RoutingModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    LoadingBarHttpClientModule,
+
+    LoadingBarRouterModule,
+  ],
   providers: [
     AuthService,
     MoviesResolve,
