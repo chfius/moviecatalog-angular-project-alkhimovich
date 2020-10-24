@@ -1,8 +1,7 @@
-import { ActivatedRoute } from '@angular/router';
+import { tap } from 'rxjs/internal/operators';
+import { MoviesService } from './../services/movies.service';
 import { Movie } from './../models/movie.interface';
-import { MoviesService } from '../services/movies.service';
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { pluck, tap } from 'rxjs/internal/operators';
+import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -11,7 +10,13 @@ import { Observable } from 'rxjs';
   styleUrls: ['./moviedashboard.component.css'],
 })
 export class MoviedashboardComponent {
-  movies: Observable<Movie[]> = this.route.data.pipe(pluck('movies'));
+  movies$: Observable<Movie[]>;
+  visibleGenres: string[] = [];
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(private moviesService: MoviesService) {
+    this.movies$ = this.moviesService.movies$;
+    this.moviesService.showOnlyGenres$.subscribe(
+      (item) => (this.visibleGenres = item),
+    );
+  }
 }

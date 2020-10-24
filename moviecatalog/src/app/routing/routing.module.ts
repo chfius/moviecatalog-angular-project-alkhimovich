@@ -15,7 +15,7 @@ const routes: Routes = [
   {
     path: 'main',
     component: MoviedashboardComponent,
-    resolve: { movies: MoviesResolve },
+    // resolve: { movies: MoviesResolve },
   },
   { path: 'account', component: AccountComponent },
   {

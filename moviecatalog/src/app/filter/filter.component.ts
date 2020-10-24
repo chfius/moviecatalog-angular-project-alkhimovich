@@ -1,3 +1,5 @@
+import { tap } from 'rxjs/internal/operators';
+import { Observable, BehaviorSubject } from 'rxjs';
 import { MoviesService } from '../services/movies.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -7,33 +9,36 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./filter.component.css'],
 })
 export class FilterComponent implements OnInit {
-  genres: string[];
-  showOnlyGenres: string[] = [];
+  genres$: Observable<string[]>;
 
   genreAllClick(): void {
+    const showOnlyGenres: string[] = [];
     const genresAll = Array.from(document.getElementsByTagName('input'));
     for (let i = 1; i < genresAll.length; i++) {
       genresAll[i].checked = genresAll[0].checked;
-    }
-    genresAll[0].checked ? (this.showOnlyGenres = this.genres) : (this.showOnlyGenres = []);
-    this.moviesService.showOnly(this.showOnlyGenres);
-  }
-
-  genreClick(): void {
-    this.showOnlyGenres = [];
-    const genresAll = Array.from(document.getElementsByTagName('input'));
-    for (let i = 1; i < genresAll.length; i++) {
       if (genresAll[i].checked) {
-        this.showOnlyGenres.push(genresAll[i].name);
+        showOnlyGenres.push(genresAll[i].name);
       }
     }
+    this.moviesService.showGenres(showOnlyGenres);
+  }
+
+  genreClick(genre: string): void {
+    let showOnlyGenres = this.moviesService.showOnlyGenres;
+    const genresAll = Array.from(document.getElementsByTagName('input'));
     genresAll[0].checked = false;
-    this.moviesService.showOnly(this.showOnlyGenres);
+
+    if (showOnlyGenres.includes(genre)) {
+      showOnlyGenres = showOnlyGenres.filter((item) => item !== genre);
+    } else {
+      showOnlyGenres.push(genre);
+    }
+    this.moviesService.showGenres(showOnlyGenres);
   }
 
   constructor(private moviesService: MoviesService) {}
 
   ngOnInit(): void {
-    this.genres = this.moviesService.getGenres();
+    this.genres$ = this.moviesService.getGenres();
   }
 }

@@ -9,6 +9,6 @@ import { pluck } from 'rxjs/internal/operators';
 export class MoviesResolve implements Resolve<Movie[]> {
   constructor(private moviesService: MoviesService) {}
   resolve(): Observable<Movie[]> {
-    return this.moviesService.getMovies();
+    return this.moviesService.movies$;
   }
 }

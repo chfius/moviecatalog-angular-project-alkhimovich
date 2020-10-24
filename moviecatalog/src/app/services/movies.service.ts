@@ -1,37 +1,55 @@
-import { movies } from './../fakebackend/movies';
-import { map, tap } from 'rxjs/internal/operators';
 import { Movie } from './../models/movie.interface';
 import { Injectable } from '@angular/core';
 import { Observable, of, BehaviorSubject } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { map, tap } from 'rxjs/internal/operators';
 
 @Injectable({
   providedIn: 'root',
 })
 export class MoviesService {
-  movies: Movie[] = [];
+  movies$: Observable<any[]>;
+  genres$: Observable<any[]>;
+  public showOnlyGenres: string[] = [];
 
-  getMovies(): Observable<any> {
-    return this.http
-      .get(`/movies`)
-      .pipe(tap((data: Movie[]) => (this.movies = data)));
+  showOnlyGenres$ = new BehaviorSubject<string[]>(this.showOnlyGenres);
+
+  getMovies(): Observable<Movie[]> {
+    return this.movies$;
   }
 
-  getGenres(): string[] {
-    const genres: string[] = [];
-    this.movies.forEach((el) => genres.push(el.genre));
-    return genres;
-  }
-
-  showOnly(genre: string[]): void {
-    this.movies.forEach((el) =>
-      genre.indexOf(el.genre) > -1 ? (el.hidden = false) : (el.hidden = true),
+  getGenres(): Observable<string[]> {
+    this.genres$ = this.movies$.pipe(
+      map((films: Movie[]) => {
+        return films.map((item) => {
+          return item.genre;
+        });
+      }),
     );
+    return this.genres$;
+  }
+
+  showGenres(genres: string[] | []): void {
+    this.showOnlyGenres = genres;
+    this.showOnlyGenres$.next(this.showOnlyGenres);
   }
 
   addMovie(movie: Movie): void {
-    this.movies.push(movie);
+    this.firestore.collection('movies').add(movie);
   }
 
-  constructor(private http: HttpClient) {}
+  constructor(private firestore: AngularFirestore) {
+    this.movies$ = firestore.collection('movies').valueChanges();
+    this.genres$ = this.movies$.pipe(
+      map((films: Movie[]) => {
+        return films.map((item) => {
+          return item.genre;
+        });
+      }),
+    );
+    this.genres$.subscribe((genres) => {
+      this.showOnlyGenres = genres;
+      this.showOnlyGenres$.next(this.showOnlyGenres);
+    });
+  }
 }
