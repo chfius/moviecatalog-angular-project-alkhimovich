@@ -1,4 +1,3 @@
-import { tap } from 'rxjs/internal/operators';
 import { MoviesService } from './../services/movies.service';
 import { Movie } from './../models/movie.interface';
 import { Component } from '@angular/core';

@@ -39,7 +39,9 @@ export class MoviesService {
   }
 
   constructor(private firestore: AngularFirestore) {
-    this.movies$ = firestore.collection('movies').valueChanges();
+    this.movies$ = firestore
+      .collection('movies', (ref) => ref.orderBy('title', 'asc'))
+      .valueChanges();
     this.genres$ = this.movies$.pipe(
       map((films: Movie[]) => {
         return films.map((item) => {

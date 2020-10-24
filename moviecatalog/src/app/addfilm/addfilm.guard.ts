@@ -15,6 +15,6 @@ export class AddFilmGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot,
   ): Observable<boolean> | boolean {
-    return this.authService.whoIsLog() ? true : false;
+    return this.authService.autorized;
   }
 }

@@ -1,41 +1,46 @@
-import { find } from 'rxjs/internal/operators';
-import { from } from 'rxjs';
-import { User } from './../models/user.interface';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { map, switchMap, tap } from 'rxjs/internal/operators';
+import { Observable, of } from 'rxjs';
 import { Injectable } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 @Injectable()
 export class AuthService {
   public autorized = false;
-  private users = [
-    { login: 'user', password: '123456', isLogin: false },
-    { login: 'yura', password: '098765', isLogin: false },
-  ];
 
-  checkLogin(user: User): boolean {
-    // tslint:disable-next-line: prefer-for-of
-    for (let i = 0; i < this.users.length; i++) {
-      if (
-        this.users[i].login === user.login &&
-        this.users[i].password === user.password
-      ) {
-        this.autorized = true;
-        return true;
-      }
-    }
-    return false;
+  login(email: string, password: string): Promise<any> {
+    return new Promise((resolve, reject) => {
+      this.afAuth.signInWithEmailAndPassword(email, password).then(
+        (userData) => {
+          resolve(userData);
+        },
+        (err) => reject(err),
+      );
+    });
   }
 
-  whoIsLog(): string | null {
-    let userLogin: User;
-    from(this.users)
-      .pipe(find((user) => user.isLogin))
-      .subscribe((user) => (userLogin = user));
-    return userLogin ? userLogin.login : null;
+  register(email: string, password: string): Promise<any> {
+    return new Promise((resolve, reject) => {
+      this.afAuth.createUserWithEmailAndPassword(email, password).then(
+        (userData) => {
+          resolve(userData);
+        },
+        (err) => reject(err),
+      );
+    });
   }
 
-  userLogIn(userCur: User): void {
-    this.users.map((user) => {
-      user.isLogin = user.login === userCur.login;
+  logout(): void {
+    this.afAuth.signOut();
+  }
+
+  getAuth(): Observable<any> {
+    return this.afAuth.authState.pipe(map((auth) => auth));
+  }
+
+  constructor(private afAuth: AngularFireAuth, private afs: AngularFirestore) {
+    this.afAuth.onAuthStateChanged((user) => {
+      user ? (this.autorized = true) : (this.autorized = false);
     });
   }
 }
