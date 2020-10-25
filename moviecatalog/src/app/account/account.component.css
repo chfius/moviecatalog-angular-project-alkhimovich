@@ -10,3 +10,7 @@ span.error {
   font-size: x-large;
   display: none;
 }
+
+button {
+  margin-top: 10px;
+}

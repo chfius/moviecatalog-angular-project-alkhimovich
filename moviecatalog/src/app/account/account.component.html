@@ -4,31 +4,28 @@
       <form
         class="login100-form validate-form flex-sb flex-w"
         [formGroup]="userFrom"
-        (submit)="onSubmit(form.value)"
         #form="ngForm"
       >
         <span class="login100-form-title p-b-51"> Авторизация </span>
-        <div class="wrap-input100 m-b-16">
+        <div class="wrap-input100 m-b-16" *ngIf="!isAutorized">
           <input
             class="input100"
             type="text"
             name="username"
-            placeholder="Логин"
-            formControlName="login"
+            placeholder="Email"
+            formControlName="email"
           />
-
           <span class="focus-input100"></span>
         </div>
         <span
           *ngIf="
-            userFrom.controls['login'].invalid &&
-            userFrom.controls['login'].touched
+            userFrom.controls['email'].invalid &&
+            userFrom.controls['email'].touched
           "
           class="error"
-          >Допустимо: первый символ не цифра, не менее 2-x символов и только
-          латинские буквы!</span
+          >Допустим только email!</span
         >
-        <div class="wrap-input100 m-b-16">
+        <div class="wrap-input100 m-b-16" *ngIf="!isAutorized">
           <input
             class="input100"
             type="password"
@@ -46,25 +43,32 @@
           class="error"
           >Длина пароля не менее 6 символов!</span
         >
-        <!-- Здесь закомментирован чекбокс "запомнить меня" -->
-        <!--<div class="flex-sb-m w-full p-t-3 p-b-24">
-           <div class="contact100-form-checkbox">
-            <input
-              class="input-checkbox100"
-              id="ckb1"
-              type="checkbox"
-              name="remember-me"
-            />
-            <label class="label-checkbox100" for="ckb1"> Запомнить меня </label>
-          </div>
-        </div>-->
         <div class="container-login100-form-btn m-t-17">
-          <button class="login100-form-btn" [disabled]="!form.valid">
-            Войти
+          <div *ngIf="!isAutorized; then autorized; else unautorized"></div>
+          <ng-template #autorized
+            ><button
+              class="login100-form-btn"
+              [disabled]="!form.valid"
+              (click)="login(form.value)"
+            >
+              Войти
+            </button></ng-template
+          >
+          <ng-template #unautorized
+            ><button class="login100-form-btn" (click)="logout()">
+              Выйти
+            </button></ng-template
+          >
+          <button
+            class="login100-form-btn"
+            (click)="register(form.value)"
+            *ngIf="!isAutorized"
+          >
+            Зарегистрироваться
           </button>
         </div>
       </form>
-      <p class="loginIn" id="loginIn">Вы вошли!</p>
+      <p class="loginIn" #loginIn>{{ message }}</p>
     </div>
   </div>
 </div>

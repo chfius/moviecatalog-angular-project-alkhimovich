@@ -1,7 +1,11 @@
 <h3>Добавить новый фильм в коллекцию</h3>
 <div class="form-container">
-  <form [formGroup]="newFilm" (ngSubmit)="onSubmit(form)" #form="ngForm"
-  (change)="hasChanges()"
+  <form
+    [formGroup]="newFilm"
+    (ngSubmit)="onSubmit(form)"
+    #form="ngForm"
+    (change)="hasChanges()"
+    novalidate
   >
     <div class="field">
       <label for="poster">Ссылка на картинку</label>
@@ -31,7 +35,7 @@
       <label for="genre">Жанр фильма</label>
       <select formControlName="genre" id="genre">
         <option></option>
-        <option *ngFor="let genre of genres">{{ genre }}</option>
+        <option *ngFor="let genre of genres$ | async">{{ genre }}</option>
       </select>
     </div>
     <div class="field">
@@ -91,4 +95,3 @@
     </div>
   </form>
 </div>
-

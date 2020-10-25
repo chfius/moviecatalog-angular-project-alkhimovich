@@ -1,7 +1,10 @@
+import { Observable } from 'rxjs';
+import { tap, map } from 'rxjs/internal/operators';
+import { AngularFirestore } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 import { MoviesService } from './../services/movies.service';
 import { Movie } from './../models/movie.interface';
-import { genres } from './../models/genres';
+
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, NgForm, Validators } from '@angular/forms';
 
@@ -11,12 +14,14 @@ import { FormGroup, FormControl, NgForm, Validators } from '@angular/forms';
   styleUrls: ['./addfilm.component.css'],
 })
 export class AddfilmComponent implements OnInit {
-  genres: string[] = [];
+  genres$: Observable<string[]>;
   movie: Movie;
   hasUnsavedChanges = false;
 
+  regex = /^https?:\/\/\S+$/;
+
   newFilm = new FormGroup({
-    poster: new FormControl('', Validators.pattern('/(http|https)://.+/')),
+    poster: new FormControl('', Validators.pattern(this.regex)),
     title: new FormControl('', Validators.required),
     year: new FormControl(),
     genre: new FormControl('', Validators.required),
@@ -50,7 +55,7 @@ export class AddfilmComponent implements OnInit {
           break;
       }
     }
-    data.hidden = false;
+
     this.moviesService.addMovie(data);
     form.reset();
     this.router.navigate(['/main']);
@@ -61,10 +66,20 @@ export class AddfilmComponent implements OnInit {
   // TODO: добавить валидности нужных полей
   // TODO: добавить модальное окно успешности добавления
 
-  constructor(private moviesService: MoviesService, private router: Router) {}
+  constructor(
+    private moviesService: MoviesService,
+    private router: Router,
+    private firestore: AngularFirestore,
+  ) {}
 
   ngOnInit(): void {
-    genres.forEach((item) => this.genres.push(item));
-    this.hasUnsavedChanges = false;
+    this.genres$ = this.firestore
+      .collection<any>(`genres`)
+      .valueChanges()
+      .pipe(
+        map((item: any) => {
+          return item[0].genre;
+        }),
+      );
   }
 }

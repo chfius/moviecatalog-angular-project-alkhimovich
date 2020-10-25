@@ -1,6 +1,5 @@
 import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
 import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
-import { FakeBackendInterceptor } from './fakebackend/fake-backend.interceptor';
 import { MoviesResolve } from './moviedashboard/moviedashboard.resolve';
 import { AuthService } from './account/auth.service';
 import { BrowserModule } from '@angular/platform-browser';
@@ -16,7 +15,9 @@ import { AccountComponent } from './account/account.component';
 import { AddfilmComponent } from './addfilm/addfilm.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+
+import { AngularFireModule } from '@angular/fire';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -33,20 +34,11 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
     BrowserModule,
     RoutingModule,
     ReactiveFormsModule,
-    HttpClientModule,
     LoadingBarHttpClientModule,
-
     LoadingBarRouterModule,
+    AngularFireModule.initializeApp(environment.firebase),
   ],
-  providers: [
-    AuthService,
-    MoviesResolve,
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: FakeBackendInterceptor,
-      multi: true,
-    },
-  ],
+  providers: [AuthService, MoviesResolve],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

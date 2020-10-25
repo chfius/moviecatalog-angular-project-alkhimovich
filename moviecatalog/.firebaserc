@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "moviecatalog-62190": {
+      "hosting": {
+        "moviecatalog": [
+          "moviecatalog-62190"
+        ]
+      }
+    }
+  }
+}
