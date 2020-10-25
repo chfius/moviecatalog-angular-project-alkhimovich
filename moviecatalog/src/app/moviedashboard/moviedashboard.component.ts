@@ -12,6 +12,10 @@ export class MoviedashboardComponent {
   movies$: Observable<Movie[]>;
   visibleGenres: string[] = [];
 
+  deleteMovie(movie: Movie): void {
+    this.moviesService.deleteMovie(movie);
+  }
+
   constructor(private moviesService: MoviesService) {
     this.movies$ = this.moviesService.movies$;
     this.moviesService.showOnlyGenres$.subscribe(

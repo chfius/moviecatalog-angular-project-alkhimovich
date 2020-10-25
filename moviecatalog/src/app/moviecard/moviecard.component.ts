@@ -1,5 +1,5 @@
 import { AuthService } from './../account/auth.service';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Movie } from '../models/movie.interface';
 
 @Component({
@@ -11,7 +11,14 @@ export class MoviecardComponent implements OnInit {
   @Input()
   item: Movie;
 
+  @Output()
+  delete = new EventEmitter<Movie>();
+
   additional = false;
+
+  deleteHandler(): void {
+    this.delete.emit(this.item);
+  }
 
   toggle(): void {
     this.additional = !this.additional;

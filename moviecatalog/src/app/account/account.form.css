@@ -3,18 +3,14 @@
 
 @font-face {
   font-family: Ubuntu-Regular;
-  src: url('../account/fonts/ubuntu/Ubuntu-Regular.ttf');
+  src: url('../../assets/fonts/Ubuntu-Regular.ttf');
 }
 
 @font-face {
   font-family: Ubuntu-Bold;
-  src: url('../account/fonts/ubuntu/Ubuntu-Bold.ttf');
+  src: url('../../assets/fonts/Ubuntu-Bold.ttf');
 }
 
-@font-face {
-  font-family: FontAwesome;
-  src: url('../account/fonts/font-awesome-4.7.0/fonts/fontawesome-webfont.ttf');
-}
 /*//////////////////////////////////////////////////////////////////
 [ RESTYLE TAG ]*/
 

@@ -3,7 +3,8 @@
   <app-filter></app-filter>
   <div class="container">
     <div *ngFor="let movie of movies$ | async" class="movie_view">
-      <app-moviecard [item]="movie" *ngIf="visibleGenres.includes(movie.genre)">
+      <app-moviecard [item]="movie" *ngIf="visibleGenres.includes(movie.genre)"
+      (delete)="deleteMovie($event)">
       </app-moviecard>
     </div>
   </div>

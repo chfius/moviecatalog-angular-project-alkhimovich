@@ -7,7 +7,7 @@
   />
   <div>
     <div id="delete" *ngIf="isAutorized">
-      <span class="cross"></span>
+      <span class="cross" (click)="deleteHandler()"></span>
     </div>
     <ul>
       <li *ngIf="item.title">
