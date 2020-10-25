@@ -1,0 +1,8 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  padding-top: 30px;
+  min-width: 100px;
+  align-self: start;
+  font-family: Ubuntu-Regular;
+}

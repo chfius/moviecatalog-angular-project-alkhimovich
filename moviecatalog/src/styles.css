@@ -1,0 +1,19 @@
+/* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: Ubuntu-Bold;
+  src: url('./assets/fonts/Ubuntu-Bold.ttf');
+}
+
+@font-face {
+  font-family: Ubuntu-Regular;
+  src: url('./assets/fonts/Ubuntu-Regular.ttf');
+}
+
+body {
+  width: 1000px;
+  margin: 0 auto;
+}
+
+footer {
+  text-align: center;
+}
