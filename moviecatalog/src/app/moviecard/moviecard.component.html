@@ -6,6 +6,9 @@
     class="poster"
   />
   <div>
+    <div id="delete" *ngIf="isAutorized">
+      <span class="cross"></span>
+    </div>
     <ul>
       <li *ngIf="item.title">
         <p>

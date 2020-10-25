@@ -8,14 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderMenuComponent implements OnInit {
   loggedUser: string;
-  isLoggedIn: boolean;
+
+  get isAutorized(): boolean {
+    return this.authService.autorized;
+  }
 
   constructor(private authService: AuthService) {}
 
   ngOnInit(): void {
     this.authService.getAuth().subscribe((auth) => {
       if (auth) {
-        this.isLoggedIn = !!auth;
         this.loggedUser = auth.email;
       }
     });

@@ -7,8 +7,7 @@
         #form="ngForm"
       >
         <span class="login100-form-title p-b-51"> Авторизация </span>
-
-        <div class="wrap-input100 m-b-16">
+        <div class="wrap-input100 m-b-16" *ngIf="!isAutorized">
           <input
             class="input100"
             type="text"
@@ -16,7 +15,6 @@
             placeholder="Email"
             formControlName="email"
           />
-
           <span class="focus-input100"></span>
         </div>
         <span
@@ -27,7 +25,7 @@
           class="error"
           >Допустим только email!</span
         >
-        <div class="wrap-input100 m-b-16">
+        <div class="wrap-input100 m-b-16" *ngIf="!isAutorized">
           <input
             class="input100"
             type="password"
