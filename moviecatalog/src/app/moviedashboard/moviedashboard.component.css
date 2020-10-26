@@ -1,11 +1,13 @@
-.container {
+.movie_container {
   display: flex;
   justify-content: flex-start;
   flex-wrap: wrap;
+  margin: 0 auto;
 }
 
 .container_app_comp {
   display: flex;
+  flex-direction: row;
   padding: 20px;
 }
 
@@ -20,3 +22,17 @@ h3 {
   display: block;
 }
 
+@media (max-width: 1080px) {
+  .container_app_comp {
+    justify-content: flex-start;
+  }
+
+  .movie_container {
+    flex-direction: column;
+    flex-wrap: nowrap;
+  }
+
+  h3 {
+    font-size: 50px;
+  }
+}

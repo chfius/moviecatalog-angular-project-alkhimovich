@@ -1,6 +1,7 @@
 <div class="container">
   <label
     ><input
+      class="genre"
       type="checkbox"
       name="all"
       id="allcheckbox"
@@ -11,6 +12,7 @@
   <div *ngFor="let genre of genres$ | async">
     <label>
       <input
+        class="genre"
         type="checkbox"
         [name]="genre"
         (click)="genreClick(genre)"

@@ -13,7 +13,7 @@
   -webkit-transform: scale(1.05);
   -ms-transform: scale(1.05);
   transform: scale(1.05);
-  background:#e2db7d;
+  background: #e2db7d;
 }
 
 .effect1 {
@@ -69,10 +69,38 @@ ul {
 }
 
 #delete {
+  width: 100%;
   text-align: end;
 }
 
 .cross:after {
   content: '\2718';
   cursor: pointer;
+}
+
+@media (max-width: 1080px) {
+  .movie_view {
+    width: 440px;
+    /* margin-left: 100px; */
+  }
+
+  p {
+    font-size: 2em;
+    margin-bottom: 15px;
+  }
+
+  ul {
+    padding-bottom: 5px;
+    padding-top: 10px;
+  }
+
+  .addition_btn {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-size: 20px;
+  }
+
+  .description {
+    width: 100%;
+  }
 }

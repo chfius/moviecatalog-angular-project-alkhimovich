@@ -6,3 +6,13 @@
   align-self: start;
   font-family: Ubuntu-Regular;
 }
+
+@media (max-width: 1080px) {
+  .container {
+    font-size: 30px;
+  }
+
+  .genre {
+    margin-bottom: 10px;
+  }
+}
