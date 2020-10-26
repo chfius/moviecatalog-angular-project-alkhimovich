@@ -17,7 +17,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 import { AngularFireModule } from '@angular/fire';
-import { environment } from '../environments/environment';
+import { firebase } from '../environments/firebase';
 
 @NgModule({
   declarations: [
@@ -36,7 +36,7 @@ import { environment } from '../environments/environment';
     ReactiveFormsModule,
     LoadingBarHttpClientModule,
     LoadingBarRouterModule,
-    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireModule.initializeApp(firebase),
   ],
   providers: [AuthService, MoviesResolve],
   bootstrap: [AppComponent],
