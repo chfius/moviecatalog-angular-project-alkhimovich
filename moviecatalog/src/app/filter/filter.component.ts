@@ -1,5 +1,5 @@
-import { tap } from 'rxjs/internal/operators';
-import { Observable, BehaviorSubject } from 'rxjs';
+import { distinct, tap, map } from 'rxjs/internal/operators';
+import { Observable, BehaviorSubject, of } from 'rxjs';
 import { MoviesService } from '../services/movies.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -9,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./filter.component.css'],
 })
 export class FilterComponent implements OnInit {
-  genres$: Observable<string[]>;
+  genres$: Observable<Set<string>>;
 
   genreAllClick(): void {
     const showOnlyGenres: string[] = [];
@@ -39,6 +39,10 @@ export class FilterComponent implements OnInit {
   constructor(private moviesService: MoviesService) {}
 
   ngOnInit(): void {
-    this.genres$ = this.moviesService.getGenres();
+    this.genres$ = this.moviesService.getGenres().pipe(
+      map((item) => {
+        return new Set(item);
+      }),
+    );
   }
 }
