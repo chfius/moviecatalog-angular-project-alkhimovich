@@ -17,7 +17,9 @@ export class MoviecardComponent implements OnInit {
   additional = false;
 
   deleteHandler(): void {
-    this.delete.emit(this.item);
+    if (confirm('Действительно удалить?')) {
+      this.delete.emit(this.item);
+    }
   }
 
   toggle(): void {
