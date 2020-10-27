@@ -3,12 +3,12 @@
 
 @font-face {
   font-family: Ubuntu-Regular;
-  src: url('../../assets/fonts/Ubuntu-Regular.ttf');
+  src: url('../../../assets/fonts/Ubuntu-Regular.ttf');
 }
 
 @font-face {
   font-family: Ubuntu-Bold;
-  src: url('../../assets/fonts/Ubuntu-Bold.ttf');
+  src: url('../../../assets/fonts/Ubuntu-Bold.ttf');
 }
 
 /*//////////////////////////////////////////////////////////////////

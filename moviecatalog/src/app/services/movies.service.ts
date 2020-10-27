@@ -1,4 +1,4 @@
-import { Movie } from './../models/movie.interface';
+import { Movie } from './../core/models/movie.interface';
 import { Injectable } from '@angular/core';
 import { Observable, of, BehaviorSubject } from 'rxjs';
 import {

@@ -4,11 +4,8 @@ import {
   CanDeactivate,
   RouterStateSnapshot,
 } from '@angular/router';
-import { Observable } from 'rxjs';
 
 import { AddfilmComponent } from './addfilm.component';
-
-
 
 @Injectable({ providedIn: 'root' })
 export class AddfilmCloseGuard implements CanDeactivate<AddfilmComponent> {

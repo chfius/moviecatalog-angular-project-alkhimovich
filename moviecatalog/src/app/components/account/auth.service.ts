@@ -1,5 +1,5 @@
 import { AngularFirestore } from '@angular/fire/firestore';
-import { map, switchMap, tap } from 'rxjs/internal/operators';
+import { map } from 'rxjs/internal/operators';
 import { Observable, of } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';

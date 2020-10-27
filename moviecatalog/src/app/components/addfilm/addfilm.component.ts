@@ -2,8 +2,8 @@ import { Observable } from 'rxjs';
 import { tap, map } from 'rxjs/internal/operators';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
-import { MoviesService } from './../services/movies.service';
-import { Movie } from './../models/movie.interface';
+import { MoviesService } from '../../services/movies.service';
+import { Movie } from '../../core/models/movie.interface';
 
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, NgForm, Validators } from '@angular/forms';
@@ -61,10 +61,6 @@ export class AddfilmComponent implements OnInit {
     this.router.navigate(['/main']);
     this.hasUnsavedChanges = false;
   }
-
-  // TODO: добавить галочку валидности возле поля
-  // TODO: добавить валидности нужных полей
-  // TODO: добавить модальное окно успешности добавления
 
   constructor(
     private moviesService: MoviesService,

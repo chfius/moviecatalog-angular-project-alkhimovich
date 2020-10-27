@@ -1,6 +1,5 @@
+import { User } from './../../core/models/user.interface';
 import { Observable } from 'rxjs';
-import { AngularFireAuth } from '@angular/fire/auth';
-import { User } from './../models/user.interface';
 import { AuthService } from './auth.service';
 import { Validators, FormControl, FormGroup } from '@angular/forms';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
