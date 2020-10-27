@@ -7,13 +7,13 @@ import { AccountComponent } from './../components/account/account.component';
 import { MoviedashboardComponent } from './../components/moviedashboard/moviedashboard.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule, Routes, CanActivate } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   { path: '', redirectTo: 'main', pathMatch: 'full' },
   {
     path: 'main',
-    component: MoviedashboardComponent
+    component: MoviedashboardComponent,
   },
   { path: 'account', component: AccountComponent },
   {
@@ -27,6 +27,13 @@ const routes: Routes = [
     loadChildren: () =>
       import('./../components/about-page/about-page.module').then(
         (m) => m.AboutPageModule,
+      ),
+  },
+  {
+    path: 'moviedashboard',
+    loadChildren: () =>
+      import('./../components/moviedashboard/moviedashboard.module').then(
+        (m) => m.MoviedashboardModule,
       ),
   },
   { path: '**', component: PageNotFoundComponent },

@@ -1,6 +1,6 @@
 import { map } from 'rxjs/internal/operators';
 import { Observable } from 'rxjs';
-import { MoviesService } from './../../services/movies.service';
+import { MoviesService } from './../../../services/movies.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
