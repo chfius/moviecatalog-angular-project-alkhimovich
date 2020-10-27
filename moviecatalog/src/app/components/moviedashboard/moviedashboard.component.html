@@ -1,4 +1,5 @@
 <h3>Каталог фильмов</h3>
+<p>Фильмов в коллекции: {{ (movies$ | async)?.length }}</p>
 <div class="container_app_comp">
   <app-filter></app-filter>
   <div class="movie_container">
