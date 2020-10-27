@@ -2,7 +2,6 @@ import { Movie } from '../../../core/models/movie.interface';
 import { AuthService } from '../../../components/account/auth.service';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
-
 @Component({
   selector: 'app-moviecard',
   templateUrl: './moviecard.component.html',

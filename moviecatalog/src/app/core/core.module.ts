@@ -3,10 +3,7 @@ import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
 import { RoutingModule } from './../routing/routing.module';
 import { HeaderMenuComponent } from './../components/header-menu/header-menu.component';
 import { AuthService } from './../components/account/auth.service';
-import { ReactiveFormsModule } from '@angular/forms';
 import { PageNotFoundComponent } from './../components/page-not-found/page-not-found.component';
-import { AddfilmComponent } from './../components/addfilm/addfilm.component';
-import { AccountComponent } from './../components/account/account.component';
 import { AngularFireModule } from '@angular/fire';
 import { firebase } from '../../environments/firebase';
 
@@ -14,16 +11,10 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @NgModule({
-  declarations: [
-    AccountComponent,
-    AddfilmComponent,
-    PageNotFoundComponent,
-    HeaderMenuComponent,
-  ],
-  providers: [AuthService, RoutingModule],
+  declarations: [PageNotFoundComponent, HeaderMenuComponent],
+
   imports: [
     CommonModule,
-    ReactiveFormsModule,
     RoutingModule,
     LoadingBarHttpClientModule,
     LoadingBarRouterModule,
@@ -34,5 +25,6 @@ import { CommonModule } from '@angular/common';
     LoadingBarHttpClientModule,
     LoadingBarRouterModule,
   ],
+  providers: [AuthService, RoutingModule],
 })
 export class CoreModule {}
