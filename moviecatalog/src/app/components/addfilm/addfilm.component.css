@@ -67,3 +67,16 @@ input[type='email']:focus {
   width: 300px;
   margin: 0 auto;
 }
+
+@media (max-width: 1080px) {
+  h3 {
+    font-size: 50px;
+  }
+  label,
+  input,
+  select,
+  textarea,
+  button[type='submit'] {
+    font-size: 25px;
+  }
+}

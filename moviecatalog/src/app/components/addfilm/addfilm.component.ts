@@ -74,7 +74,7 @@ export class AddfilmComponent implements OnInit {
       .valueChanges()
       .pipe(
         map((item: any) => {
-          return item[0].genre;
+          return item[0].genre.sort();
         }),
       );
   }

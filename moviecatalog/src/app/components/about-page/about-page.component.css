@@ -9,14 +9,11 @@ h3 {
   display: block;
 }
 
-span.user {
-  color: green;
-}
-
 .container {
-  width: 600px;
+  width: 60%;
   margin: 0 auto;
   font-family: Ubuntu-Regular;
+  text-align: justify;
 }
 
 .avatar {
@@ -24,4 +21,19 @@ span.user {
   float: left;
   border-radius: 50%;
   margin: 10px;
+}
+
+@media (max-width: 1080px) {
+  h3,
+  p {
+    font-size: 50px;
+  }
+
+  .avatar {
+    width: 300px;
+  }
+
+  .container {
+    width: 90%;
+  }
 }

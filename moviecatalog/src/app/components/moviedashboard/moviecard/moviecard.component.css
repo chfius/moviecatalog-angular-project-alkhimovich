@@ -80,8 +80,13 @@ ul {
 
 @media (max-width: 1080px) {
   .movie_view {
-    width: 440px;
-    /* margin-left: 100px; */
+    width: 500px;
+    min-height: 300px;
+    padding: 50px;
+  }
+
+  .poster {
+    width: 200px;
   }
 
   p {

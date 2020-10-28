@@ -14,3 +14,13 @@ span.error {
 button {
   margin-top: 10px;
 }
+
+@media (max-width: 1080px) {
+  .login100-form-btn {
+    font-size: 25px !important;
+  }
+
+  .p-b-51 {
+    font-size: 50px !important;
+  }
+}

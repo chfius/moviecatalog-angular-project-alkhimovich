@@ -40,7 +40,6 @@ export class MoviesService {
   }
 
   addMovie(movie: Movie): void {
-    // this.firestore.collection('movies').add(movie);
     this.firestore.collection('movies').doc(`${movie.title}`).set(movie);
   }
 

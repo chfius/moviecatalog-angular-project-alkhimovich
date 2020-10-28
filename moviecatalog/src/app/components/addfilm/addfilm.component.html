@@ -8,6 +8,11 @@
     novalidate
   >
     <div class="field">
+      <label for="title">Название</label>
+      <input formControlName="title" type="text" id="title" />
+    </div>
+
+    <div class="field">
       <label for="poster">Ссылка на картинку</label>
       <input
         class="input-field"
@@ -17,10 +22,7 @@
         placeholder="http://.."
       />
     </div>
-    <div class="field">
-      <label for="title">Название</label>
-      <input formControlName="title" type="text" id="title" />
-    </div>
+
     <div class="field">
       <label for="year">Год выхода</label>
       <input
@@ -31,6 +33,7 @@
         id="year"
       />
     </div>
+
     <div class="field">
       <label for="genre">Жанр фильма</label>
       <select formControlName="genre" id="genre">
@@ -38,6 +41,7 @@
         <option *ngFor="let genre of genres$ | async">{{ genre }}</option>
       </select>
     </div>
+
     <div class="field">
       <label>Посмотрен?</label>
       <input
@@ -55,6 +59,7 @@
         value="false"
       /><label for="isWatched_no">Нет</label>
     </div>
+
     <div class="field">
       <label for="country">Страна</label>
       <input formControlName="country" type="text" id="country" />
@@ -78,6 +83,7 @@
         id="rate"
       />
     </div>
+
     <div class="field">
       <label for="desription">Описание</label>
       <textarea
@@ -89,6 +95,7 @@
       >
       </textarea>
     </div>
+
     <div class="buttons field">
       <button type="submit" [disabled]="!form.valid">Сохранить</button>
       <input type="reset" id="reset" />
