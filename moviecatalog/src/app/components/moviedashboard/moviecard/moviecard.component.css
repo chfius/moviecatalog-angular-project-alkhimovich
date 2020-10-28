@@ -78,34 +78,18 @@ ul {
   cursor: pointer;
 }
 
-@media (max-width: 1080px) {
-  .movie_view {
-    width: 500px;
-    min-height: 300px;
-    padding: 50px;
-  }
-
+/* ----------------for mobiles ---------------- */
+@media (max-width: 375px) {
   .poster {
-    width: 200px;
+    width: 100px;
+    margin-top: 20px;
   }
 
-  p {
-    font-size: 2em;
-    margin-bottom: 15px;
+  .movie_view {
+    width: 280px;
   }
 
   ul {
-    padding-bottom: 5px;
-    padding-top: 10px;
-  }
-
-  .addition_btn {
-    margin-top: 0px;
-    margin-bottom: 0px;
-    font-size: 20px;
-  }
-
-  .description {
-    width: 100%;
+    padding-top: 5px;
   }
 }

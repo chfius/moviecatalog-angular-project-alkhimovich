@@ -74,9 +74,6 @@ h5 {
   .menu-main {
     padding-top: 0;
   }
-  .menu-main li {
-    margin-top: 20px;
-  }
   .menu-main li:after {
     content: none;
   }

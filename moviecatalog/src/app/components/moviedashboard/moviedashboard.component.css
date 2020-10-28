@@ -27,17 +27,24 @@ p {
   font-size: 10px;
 }
 
-@media (max-width: 1080px) {
+/* ----------------for mobiles ---------------- */
+@media (max-width: 768px) {
   .container_app_comp {
-    justify-content: flex-start;
-  }
-
-  .movie_container {
     flex-direction: column;
-    flex-wrap: nowrap;
+  }
+}
+
+@media (max-width: 380px) {
+  .poster {
+    width: 100px;
+    margin-top: 20px;
   }
 
-  h3 {
-    font-size: 50px;
+  .movie_view {
+    width: 280px;
+  }
+
+  ul {
+    padding-top: 5px;
   }
 }

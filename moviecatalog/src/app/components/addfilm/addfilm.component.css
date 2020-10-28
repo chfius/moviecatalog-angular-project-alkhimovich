@@ -69,14 +69,23 @@ input[type='email']:focus {
 }
 
 @media (max-width: 1080px) {
-  h3 {
-    font-size: 50px;
+  div.field {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
   }
-  label,
-  input,
-  select,
-  textarea,
-  button[type='submit'] {
-    font-size: 25px;
+  .form-container {
+    width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+
+  div.field label:first-child {
+    margin-bottom: 5px;
+  }
+
+  .buttons,
+  button {
+    margin: 10px;
   }
 }
