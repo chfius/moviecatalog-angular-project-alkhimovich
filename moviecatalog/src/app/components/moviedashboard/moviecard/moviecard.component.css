@@ -32,11 +32,11 @@ p {
   margin: 0;
   font-weight: bold;
   font-family: Ubuntu-Regular;
+  color: #777;
 }
 
 p span {
-  font-weight: normal;
-  font-size: 0.8em;
+  color: black;
 }
 
 ul {
