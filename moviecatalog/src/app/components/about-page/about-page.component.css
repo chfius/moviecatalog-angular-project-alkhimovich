@@ -1,0 +1,36 @@
+h3 {
+  font-family: Ubuntu-Bold;
+  font-size: 30px;
+  color: #403866;
+  line-height: 1.2;
+  text-transform: uppercase;
+  text-align: center;
+  width: 100%;
+  display: block;
+}
+
+.container {
+  width: 60%;
+  margin: 0 auto;
+  font-family: Ubuntu-Regular;
+  text-align: justify;
+}
+
+.avatar {
+  width: 200px;
+  float: left;
+  border-radius: 50%;
+  margin: 10px;
+}
+
+@media (max-width: 375px) {
+
+
+  .avatar {
+    width: 150px;
+  }
+
+  .container {
+    width: 90%;
+  }
+}

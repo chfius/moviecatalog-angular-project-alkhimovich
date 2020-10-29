@@ -1,0 +1,74 @@
+<div class="limiter">
+  <div class="container-login100">
+    <div class="wrap-login100 p-t-50 p-b-90">
+      <form
+        class="login100-form validate-form flex-sb flex-w"
+        [formGroup]="userFrom"
+        #form="ngForm"
+      >
+        <span class="login100-form-title p-b-51" > Авторизация </span>
+        <div class="wrap-input100 m-b-16" *ngIf="!isAutorized">
+          <input
+            class="input100"
+            type="text"
+            name="username"
+            placeholder="Email"
+            formControlName="email"
+          />
+          <span class="focus-input100"></span>
+        </div>
+        <span
+          *ngIf="
+            userFrom.controls['email'].invalid &&
+            userFrom.controls['email'].touched
+          "
+          class="error"
+          >Допустим только email!</span
+        >
+        <div class="wrap-input100 m-b-16" *ngIf="!isAutorized">
+          <input
+            class="input100"
+            type="password"
+            name="pass"
+            placeholder="Пароль"
+            formControlName="password"
+          />
+          <span class="focus-input100"></span>
+        </div>
+        <span
+          *ngIf="
+            userFrom.controls['password'].invalid &&
+            userFrom.controls['password'].touched
+          "
+          class="error"
+          >Длина пароля не менее 6 символов!</span
+        >
+        <div class="container-login100-form-btn m-t-17">
+          <div *ngIf="!isAutorized; then autorized; else unautorized"></div>
+          <ng-template #autorized
+            ><button
+              class="login100-form-btn"
+              [disabled]="!form.valid"
+              (click)="login(form.value)"
+            >
+              Войти
+            </button></ng-template
+          >
+          <ng-template #unautorized
+            ><button class="login100-form-btn" (click)="logout()">
+              Выйти
+            </button></ng-template
+          >
+          <button
+            class="login100-form-btn"
+            (click)="register(form.value)"
+            *ngIf="!isAutorized"
+          >
+            Зарегистрироваться
+          </button>
+        </div>
+      </form>
+      <p class="loginIn" #loginIn>{{ message }}</p>
+    </div>
+  </div>
+</div>

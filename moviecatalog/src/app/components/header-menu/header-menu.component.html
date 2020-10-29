@@ -1,0 +1,9 @@
+<ul class="menu-main">
+  <li><a routerLink="" routerLinkActive="active-link">Главная</a></li>
+  <li><a routerLink="/account" routerLinkActive="active-link">Кабинет пользователя</a></li>
+  <li><a routerLink="/add" routerLinkActive="active-link">Новый фильм</a></li>
+  <li><a routerLink="/about-page" routerLinkActive="active-link">О проекте</a></li>
+</ul>
+<h5 *ngIf="isAutorized">
+  Выполнен вход пользователя {{ loggedUser }}
+</h5>

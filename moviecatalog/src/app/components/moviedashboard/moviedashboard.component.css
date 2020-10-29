@@ -1,0 +1,50 @@
+.movie_container {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  margin: 0 auto;
+}
+
+.container_app_comp {
+  display: flex;
+  flex-direction: row;
+  padding: 20px;
+}
+
+h3,
+p {
+  font-family: Ubuntu-Bold;
+  font-size: 30px;
+  color: #403866;
+  line-height: 1.2;
+  text-transform: uppercase;
+  text-align: center;
+  width: 100%;
+  display: block;
+}
+
+p {
+  font-size: 10px;
+}
+
+/* ----------------for mobiles ---------------- */
+@media (max-width: 768px) {
+  .container_app_comp {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 380px) {
+  .poster {
+    width: 100px;
+    margin-top: 20px;
+  }
+
+  .movie_view {
+    width: 280px;
+  }
+
+  ul {
+    padding-top: 5px;
+  }
+}
