@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "moviecatalog-62190": {
+      "hosting": {
+        "moviecatalog": [
+          "moviecatalog-62190"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "moviecatalog-62190"
+  }
+}
