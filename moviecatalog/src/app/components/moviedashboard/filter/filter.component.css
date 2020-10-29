@@ -6,6 +6,11 @@
   align-self: start;
   font-family: Ubuntu-Regular;
 }
+
+label {
+  cursor: pointer;
+}
+
 /* ----------------for mobiles ---------------- */
 @media (max-width: 375px) {
   .container {
